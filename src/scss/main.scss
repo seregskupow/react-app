@@ -1,0 +1,15 @@
+@import "variables";
+.text-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: $mainSpacing; 
+    text-transform:capitalize; 
+}
+.text-main{
+    color:$primaryColor;
+}
+body{
+    background: $mainGrey!important;
+    font-family: "Open Sans", sans-serif !important;
+    color:$mainBlack!important;
+}
