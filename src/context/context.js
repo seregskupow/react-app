@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { linkData } from "./linkData";
 import { socialData } from "./socialData";
 import { items } from "./productData";
+import { client } from "./contentful";
 
 const ProductContext = React.createContext();
 
@@ -30,7 +31,13 @@ class ProductProvider extends Component {
   };
 
   componentDidMount() {
-    this.setProducts(items);
+    // this.setProducts(items);
+    client
+      .getEntries({
+        content_type: "techStoreProduct"
+      })
+      .then(response => this.setProducts(response.items))
+      .catch(console.error);
   }
 
   setProducts = products => {
@@ -240,25 +247,24 @@ class ProductProvider extends Component {
     const { storeProducts, price, company, shipping, search } = this.state;
     let tempPrice = parseInt(price);
     let tempProducts = [...storeProducts];
-     ///price filter
-     tempProducts = tempProducts.filter(item=> item.price<=tempPrice);
+    ///price filter
+    tempProducts = tempProducts.filter(item => item.price <= tempPrice);
     //company name filter
     if (company !== "all") {
       tempProducts = tempProducts.filter(item => item.company === company);
     }
-    if(shipping){
-      tempProducts=tempProducts.filter(item=>item.freeShipping===true);
+    if (shipping) {
+      tempProducts = tempProducts.filter(item => item.freeShipping === true);
     }
-    if(search.length>0){
-      tempProducts = tempProducts.filter(item=>{
+    if (search.length > 0) {
+      tempProducts = tempProducts.filter(item => {
         let tempSearch = search.toLowerCase();
-        let tempTitle = item.title.toLowerCase().slice(0,search.length);
-        if(tempSearch === tempTitle){
+        let tempTitle = item.title.toLowerCase().slice(0, search.length);
+        if (tempSearch === tempTitle) {
           return item;
         }
-      })
+      });
     }
-   
 
     this.setState({ filteredProducts: tempProducts });
   };
