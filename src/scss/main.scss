@@ -1,15 +1,325 @@
 @import "variables";
-.text-title{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    letter-spacing: $mainSpacing; 
-    text-transform:capitalize; 
+$primaryColor: #5fb7ea;
+$primaryRGBA: rgba(0, 0, 0, 0.3);
+$mainGrey: #fafafa;
+$darkGrey: #5f5e5e;
+$mainWhite: #fff;
+$mainBlack: #222;
+$mainTransition: all 0.3s ease-in-out;
+$mainSpacing: 0.3rem;
+.text-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  letter-spacing: $mainSpacing;
+  text-transform: capitalize;
 }
-.text-main{
-    color:$primaryColor;
+.text-main {
+  color: $primaryColor;
 }
-body{
-    background: $mainGrey!important;
-    font-family: "Open Sans", sans-serif !important;
-    color:$mainBlack!important;
+/////////////////////MAIN LINK//////////////////
+.main-link {
+  padding: 0.5rem 1rem;
+  background: $primaryColor;
+  color: $mainWhite;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: $mainSpacing;
+  outline: 2px solid $primaryColor;
+  outline-offset: 4px;
+  border: none;
+  transition: $mainTransition;
+
+  &:hover {
+    background: $darkGrey;
+    text-decoration: none;
+    color: $primaryColor;
+    outline-color: $darkGrey;
+  }
 }
+/////////////////////MAIN LINK//////////////////
+/////////////////////MAIN TITLE//////////////////
+.main-title {
+  & .title-underline {
+    height: 0.25rem;
+    width: 7rem;
+    background: $primaryColor;
+  }
+}
+/////////////////////MAIN TITLE//////////////////
+body {
+  background: $mainGrey !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: $mainBlack !important;
+}
+///////////////////////////////////////////////////
+////////////////////NAVBAR////////////////////////
+///////////////////////////////////////////////////
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: $mainGrey;
+  border-bottom: 3px solid $primaryColor;
+  z-index: 1;
+
+  & .nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1170px;
+    margin: 0 auto;
+
+    & .nav-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    & .nav-cart {
+      position: relative;
+
+      & .cart-items {
+        position: absolute;
+        background: $primaryColor;
+        color: $mainWhite;
+        font-size: 0.85rem;
+        top: -8px;
+        right: -8px;
+        padding: 0px 6px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+///////////////////////////////////////////////////
+////////////////////END OF NAVBAR//////////////////
+///////////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+////////////////////SIDEBAR////////////////////////
+///////////////////////////////////////////////////
+.sidebar {
+  position: fixed;
+  top: 61px;
+  background: $mainWhite;
+  border-right: 3px solid $primaryColor;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: $mainTransition;
+
+  & ul {
+    list-style-type: none;
+    padding: 0 !important;
+
+    & a {
+      display: block;
+      text-decoration: none !important;
+      color: $mainBlack !important;
+      font-size: 2rem;
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+      text-transform: capitalize;
+      background: transparent;
+      transition: $mainTransition;
+
+      &:hover {
+        background: $primaryColor;
+        color: $mainWhite !important;
+        padding: 0.5rem 1.5rem 0.5rem 2.5rem;
+      }
+    }
+  }
+}
+@media screen and (min-width: 576px) {
+  .sidebar {
+    width: 20rem;
+  }
+}
+///////////////////////////////////////////////////
+////////////////////END OF SIDEBAR////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+////////////////////CART////////////////////////
+///////////////////////////////////////////////////
+.side-cart {
+  position: fixed;
+  top: 61px;
+  background: $mainWhite;
+  border-left: 3px solid $primaryColor;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: $mainTransition;
+  overflow:scroll;
+  padding: 2rem;
+
+  & ul{
+    padding:0!important;
+
+    & li{
+      list-style-type: none;
+    }
+  }
+}
+@media screen and (min-width: 576px) {
+  .side-cart {
+    width: 20rem;
+  }
+}
+///////////////////////////////////////////////////
+////////////////////END OF CART////////////////////////
+///////////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+////////////////////Hero////////////////////////
+///////////////////////////////////////////////////
+
+.hero {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: $mainWhite;
+  text-transform: uppercase;
+
+  & .title {
+    padding: 2rem;
+    font-size: 3.5rem;
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: $mainSpacing;
+  }
+}
+///////////////////////////////////////////////////
+////////////////////End of Hero////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+////////////////////FOOTER////////////////////////
+///////////////////////////////////////////////////
+
+footer {
+  background: $darkGrey;
+  color: $mainWhite;
+
+  & .icon {
+    font-size: 1.5rem;
+    color: $mainWhite;
+    transition: $mainTransition;
+
+    &:hover {
+      color: $primaryColor;
+      cursor: pointer;
+    }
+  }
+}
+///////////////////////////////////////////////////
+////////////////////FOOTER////////////////////////
+///////////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+////////////////////////////services-section/////////////
+///////////////////////////////////////////////////
+.services-section {
+  background: rgba(95, 183, 234, 0.5);
+  color: $darkGrey;
+
+  & .services-icon {
+    font-size: 2.5rem;
+    color: $primaryColor;
+  }
+  & p {
+    color: $darkGrey;
+  }
+}
+
+///////////////////////////////////////////////////
+////////////////////////////services-section/////////////
+///////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////
+///////////////////////PRODUCT////////////////////////
+////////////////////////////////////////////////////
+.product-wrapper {
+  & .card {
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: $mainTransition;
+    height: 100%;
+    cursor: pointer;
+
+    & .img-container {
+      position: relative;
+
+      & .card-img-top {
+        transition: $mainTransition;
+      }
+      & .product-icons{
+        transition: $mainTransition;
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        opacity:0;
+          & .icon{
+            font-size:2.5rem;
+            margin:1rem;
+            padding: 0.5rem;
+            color:$primaryColor;
+            background: $mainBlack;
+            border-radius: 0.5rem;
+          }
+      }
+    }
+
+    & .card-body{
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform:uppercase;
+    }
+    &:hover {
+      box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.5);
+
+      & .product-icons{
+        opacity: 1;
+      }
+      & .card-img-top {
+        transform: scale(1.15);
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+///////////////////////////////////////////////////////
+///////////////////////PRODUCT////////////////////////
+////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////
+///////////////////////Filter////////////////////////
+////////////////////////////////////////////////////
+.filter-wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+  grid-column-gap:2rem;
+  grid-row-gap:1rem;
+
+  & label{
+    font-weight:bold;
+    text-transform: capitalize;
+  }
+  & .filter-item, & .filter-price{
+    display: block;
+    width: 100%;
+    background: transparent;
+    border-radius:0.5rem;
+    border:2px solid $darkGrey;
+  }
+}
+//////////////////////////////////////////////////////
+///////////////////////Filter////////////////////////
+////////////////////////////////////////////////////
